@@ -1,0 +1,36 @@
+openapi: 3.0.1
+info:
+  title: Opene - Externa listor
+  description: "Extern lista med anställda."
+  contact:
+    name: Andreas Nordman
+    email: andreas.nordman@ostersund.se
+  version: 1.0.24
+servers:
+  - url: /api/opene/rest/listor
+    variables:
+      scheme:
+        default: https
+        enum:
+          - https
+paths:
+  /heroma/employees:
+    get:
+      tags:
+        - Heroma
+      summary: En lista med anställda under en viss chef.
+      parameters:
+        - name: username
+          in: query
+          required: true
+          schema:
+            type: string
+            description: chefens användarnamn
+      responses:
+        '200':
+          description: Lista med medarbetare under chefen returneras.
+        default:
+          description: Ett fel har inträffat
+tags:
+  - name: Heroma
+    description: Listor med koppling mot Heromas databas.
