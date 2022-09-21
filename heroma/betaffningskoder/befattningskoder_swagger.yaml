@@ -1,0 +1,28 @@
+openapi: 3.0.1
+info:
+  title: Opene - Externa listor
+  contact:
+    name: Andreas Nordman
+    email: andreas.nordman@ostersund.se
+  version: 1.0.30
+servers:
+  - url: /api/opene/rest/listor
+    variables:
+      scheme:
+        default: https
+        enum:
+          - https
+paths:
+  /heroma/befattningskoder:
+    get:
+      tags:
+        - Heroma
+      summary: En lista med befattningskoder från Heroma.
+      responses:
+        '200':
+          description: Lista med yrkestitlar och befattningskoder returneras till e-tjänsteplattformen.
+        default:
+          description: Ett fel har inträffat
+tags:
+  - name: Heroma
+    description: Listor med koppling mot Heromas databas.
